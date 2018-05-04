@@ -1,0 +1,57 @@
+/* All data-table related stylesheets goes here */
+
+#recordTableContainer {
+    font-size: 12px;
+    overflow-x: scroll;
+    display: inline-block;
+}
+
+#recordTableContainer .action-column:after {
+    display: none;
+}
+
+#recordTableContainer .action-column {
+    cursor: default;
+}
+
+.table-container {
+    margin: 32px;
+}
+
+
+/*
+*  Styling for Pre-loader on the TOP of Table on Page-load
+*/
+
+.table-container {
+    display: none;
+}
+
+.preload {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    margin: 32vh 0;
+    top: 50%;
+    left: 46%;
+}
+
+.mt-custom {
+    margin-top: 20vh;
+}
+
+.preload-upload {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1999;
+    height: 100%;
+    width: 100%;
+    background: #333333;
+    opacity: 0.8;
+    min-height: 100vh;
+}
+
+.l-upload-image {
+    margin: 15% 40%;
+}

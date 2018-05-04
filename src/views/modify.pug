@@ -1,0 +1,83 @@
+extends layout
+
+block content
+
+  .my-3.row
+    .col-md-11
+      button.modify-icon#modifySubmitButton.btn.btn-primary.l-float-right(type='button',  title= label.saveChangesTooltip) 
+        span.glyphicon.glyphicon-save.icon-style
+        span= label.saveChanges
+  
+  .modify-container.mt-2.mb-3
+    .sort-filter-container.col-md-2.filter-data.light-black-box-shadow.brown-linear-gradient
+      .actionable-item
+        h2.mr-3.pb-3.t-border-bottom-lightgrey= label.sortBy
+
+        .sort-option
+          label.radio.mr-4
+            input.default-enabled(type="radio", name="sortOption", checked)
+            span.t-font-normal= label.count
+          label.radio.ml-16.l-display-inline-block.mr-4
+            input.default-enabled(type="radio", name="count", value="descending",checked)
+            span.t-font-normal
+            p.glyphicon.glyphicon-sort-by-attributes.t-font-normal
+          label.radio.l-display-inline-block.mr-4
+            input.default-enabled(type="radio", name="count", value="ascending")
+            span.t-font-normal
+            p.glyphicon.glyphicon-sort-by-attributes-alt.t-font-normal
+
+        .sort-option
+          label.radio.mr-4
+            input(type="radio", name="sortOption")
+            span.t-font-normal= label.designation
+          label.radio.ml-16.l-display-inline-block.mr-4
+            input(type="radio", name="designation", value="ascending",checked)
+            span.t-font-normal
+            p.glyphicon.glyphicon-sort-by-attributes.t-font-normal
+          label.radio.l-display-inline-block.mr-4
+            input(type="radio", name="designation", value="descending")
+            span.t-font-normal
+            p.glyphicon.glyphicon-sort-by-attributes-alt.t-font-normal
+
+        .sort-option
+          label.radio.mr-4
+            input(type="radio", name="sortOption")
+            span.t-font-normal= label.startDate
+          label.radio.ml-16.l-display-inline-block.mr-4
+            input(type="radio", name="startDate", value="ascending",checked)
+            span.t-font-normal
+            p.glyphicon.glyphicon-sort-by-attributes.t-font-normal
+          label.radio.l-display-inline-block.mr-4
+            input(type="radio", name="startDate", value="descending")
+            span.t-font-normal
+            p.glyphicon.glyphicon-sort-by-attributes-alt.t-font-normal
+
+        .sort-option
+          label.radio.mr-4
+            input(type="radio", name="sortOption")
+            span.t-font-normal= label.name
+          label.radio.ml-16.l-display-inline-block.mr-4
+            input(type="radio", name="tag", value="descending",checked)
+            span.t-font-normal
+            p.glyphicon.glyphicon-sort-by-alphabet.t-font-normal
+          label.radio.l-display-inline-block.mr-4
+            input(type="radio", name="tag", value="ascending")
+            span.t-font-normal
+            p.glyphicon.glyphicon-sort-by-alphabet-alt.t-font-normal
+
+    .supervisor-container.col-md-5.t-border-lightblack.light-black-box-shadow.alice-blue-radial-gradient(data-supervisorMap = SupervisorMap)
+      h2.l-align-center= label.supervisor
+      div.searchInputContainer
+        input#searchInput.form-control.mb-2.mt-1(type="search", placeholder= label.supervisorSearch, name="tags-search")
+      ul.supervisor-list.p-5
+        each supervisor,index in SupervisorMap   
+          li.supervisor(id=index, data-start-date=supervisor.startDate, data-count=supervisor.superviseeCount, data-designation=(supervisor.designation.toLowerCase()), data-tag=supervisor.nameDisplay.toLowerCase().replace(/\s/g,'').split('.').join(''))
+            span= supervisor.nameDisplay
+            span!= '&#32; &#8211; &#32; &#40;'
+            span.count= supervisor.superviseeCount
+            span!= '&#41; &#32; &#8211; &#32;'
+            span.title= mapDesignation[supervisor.designation]
+
+    .supervisee-container.col-md-4.t-border-lightblack.light-black-box-shadow.alice-blue-radial-gradient
+      h2.l-align-center= label.supervisee 
+      ul.superviseeList.p-5

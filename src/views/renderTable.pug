@@ -1,0 +1,42 @@
+.preload
+	img(src="images/loader.gif", alt="Loading...", height="100", width="100")
+.table-container.mt-5
+	.row.mb-3
+		.col-sm-3
+			label(for='supervisorSearch')= label.supervisorSearch
+			input.form-control#supervisorSearch(type="search", placeholder= label.supervisorSearchPlaceholder)
+		.col-sm-3
+			label(for='personSearch')= label.personSearch
+			input.form-control#personSearch(type="search", placeholder= label.personSearchPlaceholder)
+		.col-sm-2.l-float-right
+			label.l-display-block.l-align-center(for="updateButton")= label.editUpdate
+			button.update-icon#updateButton.btn.btn-success.l-display-block.m-mid-element(type='button', disabled="true", title= label.updateDataTooltip) 
+				span.glyphicon.glyphicon-upload.icon-style 
+				span= label.updateData
+
+	table#recordTableContainer.table-Scrollbar.table.table-striped.table-bordered(cellspacing= '0', width='100%')
+		thead
+			tr
+				each head in recordHeads
+					th= head
+				if isAdmin
+					th.action-column= editlabel
+		tbody.recordBodyContainer
+			each record in records
+				tr(data-record= (isAdmin) ? record : '')
+					each head, indexData in recordData
+						if(indexData == 4)
+							td(data-editable= (editAbleItem.includes(head)) ? 'true' : 'false', data-fieldtype=head)= ((record[head])?(record[head]):'') +' '+ ((record[dbField.MIDDLE_NAME])?(record[dbField.MIDDLE_NAME]):'') +' '+ ((record[dbField.LAST_NAME])?(record[dbField.LAST_NAME]):'')
+						else if (indexData == 5 || indexData == 6)
+						else
+							td(data-editable= (editAbleItem.includes(head)) ? 'true' : 'false', data-fieldtype=head)= (record[head]) ? (record[head]) : '--'
+
+					if isAdmin
+						td
+							a.edit-link.btn.btn-info.btn-xs(data-oracle-id= record[dbField.OracleId])= label.edit
+		tfoot
+			tr
+				each head in recordHeads
+					th= head
+				if isAdmin
+					th= label.edit

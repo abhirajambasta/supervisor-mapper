@@ -1,0 +1,75 @@
+.modify-container {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0 20px;
+}
+
+.modify-container ul {
+    list-style-type: none;
+    border-top: 1px solid #d2d2d2;
+    height: 55vh;
+    overflow-y: auto;
+}
+
+.modify-container ul li {
+    padding: 4px;
+    border-bottom: 1px solid #d2d2d2;
+    font-size: 16px;
+}
+
+.light-black-box-shadow {
+    box-shadow: 2px 2px 15px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 2px 2px 15px 0px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 2px 2px 15px 0px rgba(0, 0, 0, 0.75);
+    border-radius: 10px;
+}
+
+.alice-blue-radial-gradient {
+    background: rgba(229, 242, 246, 1);
+    background: -moz-radial-gradient(center, ellipse cover, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 41%, rgba(229, 242, 246, 1) 100%);
+    background: -o-radial-gradient(center, ellipse cover, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 41%, rgba(229, 242, 246, 1) 100%);
+    background: -ms-radial-gradient(center, ellipse cover, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 41%, rgba(229, 242, 246, 1) 100%);
+    background: -webkit-radial-gradient(center, ellipse cover, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 41%, rgba(229, 242, 246, 1) 100%);
+}
+
+.brown-linear-gradient {
+    background: linear-gradient(to left, rgba(160, 82, 45, 0.1), rgba(160, 82, 45, 0.3));
+}
+
+.modify-container li.supervisor {
+    cursor: pointer;
+}
+
+.sort-filter-container .radio span::after {
+    border-color: #A0522D;
+}
+
+.sort-filter-container .radio input[type="radio"]:disabled+span::after,
+.sort-filter-container .radio input[type="radio"]:disabled+span::before {
+    opacity: 0.3;
+}
+
+.sort-filter-container .radio input[type=radio]:checked+span::after {
+    border-color: #A0522D;
+}
+
+.sort-filter-container .radio input[type=radio]:checked+span::before {
+    background-color: #A0522D;
+}
+
+.scale-element {
+    transform: scale(1.5);
+}
+
+.modify-container .highlight {
+    background-color: #b0927b;
+}
+
+.modify-container .new {
+    background-color: #2da59b;
+}
+
+.modify-container .selected {
+    background-color: #67758A;
+    color: #fff;
+}

@@ -1,0 +1,56 @@
+/* 
+  Radio Button customized
+*/
+
+.actionable-item [type="radio"]:checked,
+.actionable-item .radio {
+    font-size: 14px;
+    position: relative;
+}
+
+.actionable-item .radio span {
+    position: relative;
+    padding-left: 26px;
+}
+
+.actionable-item .radio span:after {
+    content: '';
+    width: 18px;
+    height: 18px;
+    border: 1px solid #d2d2d2;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-radius: 100%;
+    box-sizing: border-box;
+}
+
+.actionable-item .radio input[type="radio"] {
+    cursor: pointer;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"
+}
+
+.actionable-item .radio input[type="radio"]:disabled {
+    cursor: not-allowed;
+}
+
+.actionable-item .radio input[type="radio"]:checked+span:after {
+    border-color: #0075d5;
+}
+
+.actionable-item .radio input[type="radio"]:checked+span:before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    background: #0075d5;
+    left: 4px;
+    top: 4px;
+    border-radius: 100%;
+}

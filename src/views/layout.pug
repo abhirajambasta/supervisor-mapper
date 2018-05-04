@@ -1,0 +1,24 @@
+doctype html
+html
+  head
+    title= label.pageTitle
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    link(rel='stylesheet', href='/vendor/stylesheets/bootstrap.min.css')
+    link(rel='stylesheet', href='/vendor/stylesheets/tables.bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src='/vendor/javascripts/jquery.min.js')
+    script(src='/vendor/javascripts/bootstrap.min.js')
+    script(src='/vendor/javascripts/jquery.tables.min.js')
+    script(src='/vendor/javascripts/tables.bootstrap.min.js')
+    script(src='/vendor/javascripts/jquery.mousewheel.min.js')
+    script(src='/javascripts/main.js')
+    if script
+      script(src= '/javascripts' + script)
+  body
+
+    include header
+
+    main
+      block content
+
+    include footer

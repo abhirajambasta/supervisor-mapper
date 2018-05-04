@@ -1,0 +1,27 @@
+extends layout
+
+block content
+	.preload-upload.l-display-none
+		img.l-upload-image(src="images/upload-cloud.gif", alt="Uploading...", height="256", width="256")
+	nav#navBarManu.clearfix.l-navbar.collapse
+		form.my-3.l-padding#fileForm(method='POST', action=routes.DIFFERENCE, enctype=enctypeValue)
+			label.btn.btn-info.btn-file.mb-0#csvFileLabel(for='csvFile')
+				span.glyphicon.glyphicon-paperclip.icon-style(title= label.browseTooltip)= label.browse
+				input#csvFile(type='file', name='csvFile' accept= label.fileTypeAccept)
+				span#fileNameContainer(title= label.fileTooltip)= label.noneAttachment
+			button.btn.ml-3.btn-primary.upload-icon#uploadButton(type='submit', disabled="true", title= label.uploadTooltip)
+				span.glyphicon.glyphicon-cloud-upload.icon-style= label.uploadBtn
+			p.l-float-right
+				a.download-icon#downloadButton.btn.btn-primary.ml-3(href= routes.DOWNLOAD, title= label.downloadTooltip)   
+					span.glyphicon.glyphicon-download-alt.icon-style= label.downloadBtn
+				a.modify-icon#modifyButton.btn.btn-success.ml-8(href= routes.MODIFY, title= label.mappingTooltip)
+					span.glyphicon.glyphicon-transfer.icon-style
+					span= label.mappingBtn
+
+	if records
+		include renderTable
+	else
+		.no-data
+			h1.l-status-code.l-align-center= label.noContentStatusCode
+			h2.l-align-center= label.noContentMessage
+			p.l-align-center= label.noContentSubMessage

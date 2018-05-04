@@ -1,0 +1,10 @@
+.l-navbar {
+    font-size: 24px;
+    background-color: #f4f4f4;
+    border: 1px solid #d2d2d2;
+    position: absolute;
+    z-index: 999;
+    top: 96px;
+    width: 100%;
+    padding: 20px 120px 52px;
+}

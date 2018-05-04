@@ -1,0 +1,9 @@
+extends layout
+
+block content
+
+  h1.l-status-code.l-align-center= label.statusCode
+  h2.error-message.l-align-center= label.message
+  p.sub-message.l-align-center= label.submessage
+  p.mt-12.l-align-center
+    a.btn.btn-link(href= routes.LOGIN)= label.back

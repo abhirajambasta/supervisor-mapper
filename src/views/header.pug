@@ -1,0 +1,13 @@
+header.l-header
+      .container
+        h1.my-4= headerLabel.heading
+          unless notShowLogout
+            a#logoutButton.btn.btn-info.l-float-right(href= routes.LOGOUT, title= headerLabel.logoutTooltip)
+              span.glyphicon.glyphicon-log-out.icon-style= headerLabel.logout
+            if showToolBar
+              a#toolbarBtn.btn.btn-primary.l-float-right.mr-5(href= routes.VOID, title= headerLabel.toolbarTooltip)
+                span.glyphicon.glyphicon-chevron-up.icon-style= headerLabel.toolbar
+            else
+              unless notShowHome
+                a#homeBtn.btn.btn-success.l-float-right.mr-5(href= routes.HOME, title= headerLabel.homeTooltip)
+                  span.glyphicon.glyphicon-home.icon-style= headerLabel.home

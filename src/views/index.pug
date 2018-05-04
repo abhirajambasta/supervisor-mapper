@@ -1,0 +1,28 @@
+extends layout
+
+block content
+
+  .mt-5.container
+    .row
+      .col-md-6.col-md-offset-3
+        h1.display-4.mb-8= label.heading
+
+        form.form-horizontal.login-form(method='POST' action= routes.AUTH_CHECK)
+          div.form-group
+            label.col-sm-3.control-label(for='username')
+              span.glyphicon.glyphicon-user.icon-style
+              span= label.username
+            div.col-sm-9
+              input#username.form-control.col-sm-10(type='text', placeholder= label.usernamePlaceholder, name='username')
+          div.form-group
+            label.col-sm-3.control-label(for='password')
+              span.glyphicon.glyphicon-lock.icon-style
+              span= label.password
+            div.col-sm-9
+              input#password.form-control.col-sm-10(type='password', placeholder= label.passwordPlaceholder, name='password')
+          div.form-group
+            div.col-sm-offset-3.col-sm-9
+              button.btn.btn-primary(type='submit')
+                span.glyphicon.glyphicon-check.icon-style= label.submit
+              button.btn.btn-default.ml-8(type='reset')
+                span.glyphicon.glyphicon-remove.icon-style= label.reset

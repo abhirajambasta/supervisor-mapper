@@ -1,0 +1,11 @@
+.DS_Store
+.vscode/
+/dist
+/node_modules
+package-lock.json
+/src/uploads
+/data/
+/uploads/
+npm-debug.log
+.env
+*.bat
